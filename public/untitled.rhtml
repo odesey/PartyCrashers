@@ -1,0 +1,11 @@
+<div class="destinations"/>
+
+	<h3><%= destination.name %></h3>
+	<img src="<%= destination.image_url %>" />
+</div>
+
+<div class="destinations">
+	<% destination.todo_items.each do |d| %>
+	<%= render d %>
+	<% end %>
+</div>
