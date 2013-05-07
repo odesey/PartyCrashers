@@ -1,4 +1,18 @@
 PartyCrashers::Application.routes.draw do
+  get "parties/index"
+
+  get "parties/create"
+
+  get "parties/update"
+
+  get "parties/new"
+
+  get "parties/destroy"
+
+  get "parties/edit"
+
+  get "parties/show"
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -50,7 +64,7 @@ PartyCrashers::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'parties#index'
 
   # See how all your routes lay out with "rake routes"
 
