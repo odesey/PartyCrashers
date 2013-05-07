@@ -1,17 +1,5 @@
 PartyCrashers::Application.routes.draw do
-  get "parties/index"
-
-  get "parties/create"
-
-  get "parties/update"
-
-  get "parties/new"
-
-  get "parties/destroy"
-
-  get "parties/edit"
-
-  get "parties/show"
+  resources :parties
 
   devise_for :users
 

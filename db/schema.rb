@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507191435) do
+ActiveRecord::Schema.define(:version => 20130507210851) do
 
   create_table "attended_parties", :force => true do |t|
     t.integer  "user_id"
@@ -52,8 +52,9 @@ ActiveRecord::Schema.define(:version => 20130507191435) do
     t.time     "time"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   create_table "party_tags", :force => true do |t|
