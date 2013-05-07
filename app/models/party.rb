@@ -1,5 +1,5 @@
 class Party < ActiveRecord::Base
-  attr_accessible :address, :date, :latitude, :longitude, :rating, :state, :time, :title, :zipcode
+  attr_accessible :address, :date, :latitude, :longitude, :rating, :state, :time, :title, :zipcode, :description
 
   has_many :hosted_parties
   has_many :attended_parties
