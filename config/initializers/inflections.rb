@@ -6,7 +6,7 @@
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'
-	inflect.irregular 'party', 'parties'
+	# inflect.irregular 'party', 'parties'
 #   inflect.uncountable %w( fish sheep )
 # end
 #
