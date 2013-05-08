@@ -1,5 +1,5 @@
 class Party < ActiveRecord::Base
-  attr_accessible :address, :date, :latitude, :longitude, :rating, :state, :time, :title, :zipcode, :description
+  attr_accessible :address, :date, :latitude, :longitude, :rating, :state, :time, :title, :zipcode, :description, :main_image
 
   has_many :hosted_parties
   has_many :attended_parties
@@ -15,8 +15,8 @@ class Party < ActiveRecord::Base
   after_validation :geocode
 
   def geolocate
-  	"#{self.name}"
+  	"#{self.zipcode}"
   end
 
-  
+
 end

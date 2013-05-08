@@ -1,5 +1,57 @@
 <h1>Listing parties</h1>
 
+
+<h1>Destinations</h1>
+
+<div id="search-box">
+<input type="text" id="search" placeholder="Search for a party to crash!" />
+
+</div>
+<link rel="stylesheet" type="text/css" href="/todo_items.css" />
+<body>
+
+<style type="text/css">
+
+  #map-canvas { height: 500px; width: 500px; float:right;}
+</style>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6ZYTVUPqC5THPhI-QaiTF4YMl2fQfOYs&sensor=false">
+</script>
+
+<div id="map-canvas">
+
+</div>
+
+  
+<style type="text/css">
+#items {margin-left:15px; font-family: Copperplate, "Copperplate Gothic Light", fantasy;}
+</style>
+
+<script type="text/javascript">
+  function initialize() {
+    var mapOptions = {
+      center: new google.maps.LatLng(40.7143528, -74.00597309999999),
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"),
+        mapOptions);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
+
+<%#= render 'destinations/form' %> 
+
+
+<%# @destinations.each do |d| %>
+
+  <%#= render d %>
+  
+  <%#= render :partial => 'todo_items/form', :locals => {:colbeans => d.id} %>
+  
+  <%# end %>
+
 <table>
   <tr>
     <th></th>
