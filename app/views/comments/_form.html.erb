@@ -2,7 +2,7 @@
 <div class="comment-form">
 <!-- creates new comment but defaulting id to 1 -->
 
-    <%= form_for Comment.new(:party_id => 1, :remote => :true do |f| %>
+    <%= form_for Comment.new(:party_id => 1), :remote => :true do |f| %>
         
             <div class="field">
                 <%= f.hidden_field :party_id %>

@@ -15,6 +15,8 @@ PartyCrashers::Application.routes.draw do
 
   devise_for :users
 
+  resource :comments, :only => [:create]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
