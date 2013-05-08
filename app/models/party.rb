@@ -10,4 +10,12 @@ class Party < ActiveRecord::Base
   #This is the GA Engineer bit
   has_many :hosts, :through => :hosted_party, :source => :user
   has_many :attendees, :through => :attended_party, :source => :user
+
+  geocoded_by :geolocate
+  after_validation :geocode
+
+  def geolocate
+  	"#{self.zipcode}"
+  end
+  
 end
