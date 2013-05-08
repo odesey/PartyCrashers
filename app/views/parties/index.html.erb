@@ -4,6 +4,7 @@
 
   <table>
     <tr>
+      <th>Image</th>
       <th>Title</th>
       <th>Address</th>
       <th>Date</th>
@@ -12,6 +13,7 @@
 
   <% @parties.each do |party| %>
     <tr>
+      <td><%= image_tag party.main_image %></td>
       <td><%= link_to party.title, party %></td>
       <td><%= party.address %></td>
       <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
