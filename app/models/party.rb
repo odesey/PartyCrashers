@@ -18,5 +18,4 @@ class Party < ActiveRecord::Base
   	"#{self.zipcode}"
   end
 
-
 end
