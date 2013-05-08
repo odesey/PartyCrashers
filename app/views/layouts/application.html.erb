@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="container">
+	<div id="header">
+		<div
+
+
 		<div id="user_nav">
+			<%= link_to "Home", parties_path %> | <%= link_to "Create Party", new_party_path %> | <%= link_to "Search", parties_path %> | <%= link_to "About", parties_path %> | <%= link_to "Contact", parties_path %> | 
+
+
 			<% if user_signed_in? %>
 				<p> Signed in as <%= current_user.email %>.  Not you?</p>
 				<%= link_to "Sign out", destroy_user_session_path %>
@@ -21,9 +27,10 @@
 			<p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
      </div>
+   </div>
 
-
-<%= yield %>
-
+   <div id="content">
+		<%= yield %>
+	</div>
 </body>
 </html>
