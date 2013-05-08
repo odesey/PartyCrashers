@@ -1,6 +1,8 @@
 class PartiesController < ApplicationController
   # GET /parties
   # GET /parties.json
+  before_filter :authenticate_user!, :except => [:show, :index]
+  
   def index
     @parties = Party.all
 
