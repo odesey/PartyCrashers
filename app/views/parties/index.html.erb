@@ -1,21 +1,35 @@
-<h1>Listing parties</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="left-column">
+  <h1>Listing parties</h1>
 
-<% @parties.each do |party| %>
-  <tr>
-    <td><%= link_to 'Show', party %></td>
-    <td><%= link_to 'Edit', edit_party_path(party) %></td>
-    <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Date</th>
+      <th>Rating</th>
+    </tr>
 
-<br />
+  <% @parties.each do |party| %>
+    <tr>
+      <td><%= link_to party.title, party %></td>
+      <td><%= party.address %></td>
+      <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
+      <td><%= party.rating %> </td>
+      <td><%= link_to 'Show', party %></td>
+      <td><%= link_to 'Edit', edit_party_path(party) %></td>
+      <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<%= link_to 'New Party', new_party_path %>
+  <br />
+
+  <%= link_to 'New Party', new_party_path %>
+</div>
+
+<div class="right-column">
+  <div class="map">
+    Test map
+  </div>
+</div>
