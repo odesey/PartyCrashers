@@ -1,0 +1,20 @@
+
+<div class="image-form">
+
+    <%= form_for Image.new(:party_id => 1, :remote => :true do |f| %>
+        
+            <div class="field">
+                <%= f.hidden_field :party_id %>
+            </div>
+
+            <div class="field">
+                <%= f.text_area :image %>
+            </div>
+
+            <div class="field">
+                <%= f.submit %>
+            </div>
+    <% end %>
+
+</div>
+
