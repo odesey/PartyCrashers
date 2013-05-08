@@ -7,13 +7,14 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-group :test do
+group :development, :test do
 	gem 'cucumber-rails'
 	gem 'capybara'
 	gem 'poltergeist'
 	gem 'database_cleaner'
+	gem 'rspec-rails', '~> 2.0'
+	gem 'shoulda-matchers'
 end
-
 
 # Gems used only for assets and not required
 # in production environments by default.
