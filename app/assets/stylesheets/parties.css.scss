@@ -1,3 +1,27 @@
 // Place all the styles related to the Parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.left-column, .right-column {
+
+    float: left;
+    background-color: #D8E9E6;
+    border-top: thin solid #97b4e0;
+    border-bottom: thin solid #97b4e0;
+}
+.left-column {
+	width: 500px;
+}
+
+.right-column {
+    border-left:1px solid #999;
+    width: 300px;
+
+}
+
+h1 {
+	margin-top: 70px;
+}
+
+tr td {
+	margin-left: 5px;
+}

@@ -16,8 +16,12 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :main_image %><br />
+    <%= f.text_field :main_image %>
   </div>
 
   <div class="field">
@@ -28,11 +32,8 @@
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
-  <div class="field">
-    <%= f.label :rating %><br />
-    <%= f.check_box :rating %>
-  </div>
-      <%= f.label :address %><br />
+  <div>
+    <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
   <div class="field">

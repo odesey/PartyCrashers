@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+
+
+<div class="left-column">
+
+	<h1> <%= @party.title %> @ <%=@party.address%></h1>
+	<h3> <%= @party.date.to_s(:date) %></h3>
+	<h3> Rating: <%= @party.rating %></h3>
+
+	<h3> Description </h3>
+	<p> <%=@party.description %></p>
+
+
+
+</div>
+
+<!-- JOAQUIN, MOVE TO 3 COLUMN FORMAT FOR COMMENTING? -->
+
+<div class="right-column">
+	<div class="map">
+
+	</div>
+</div>
 
 
 <%= link_to 'Edit', edit_party_path(@party) %> |
