@@ -6,8 +6,17 @@ class Party < ActiveRecord::Base
   has_many :tags, :through => :party_tag
   has_many :party_tags
   has_many :images
+  has_many :comments
 
   #This is the GA Engineer bit
   has_many :hosts, :through => :hosted_party, :source => :user
   has_many :attendees, :through => :attended_party, :source => :user
+
+  geocoded_by :geolocate
+  after_validation :geocode
+
+  def geolocate
+  	"#{self.zipcode}"
+  end
+  
 end
