@@ -17,7 +17,7 @@
       <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
       <td><%= party.rating %> </td>
       <td><%= link_to 'Show', party %></td>
-      <td><%= link_to 'Edit', edit_party_path(party) %></td>
+      <td><%= link_to 'edit_party_patht', edit_party_path(party) %></td>
       <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
