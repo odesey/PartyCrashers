@@ -3,6 +3,20 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :age %><br />
+  <%= f.text_field :age %></div>
+
+  <div>
+	  <%= radio_button_tag :sex, "male" %>
+	  <%= label :sex, "Male", :value => 'male' %>
+		<%= radio_button_tag :sex, "female" %>
+		<%= label :sex, "Female", :value => 'female' %>
+
+	</div><br />
+
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
