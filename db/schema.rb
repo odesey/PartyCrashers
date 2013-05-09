@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130508193202) do
 
-
   create_table "attended_parties", :force => true do |t|
     t.integer  "user_id"
     t.integer  "party_id"
