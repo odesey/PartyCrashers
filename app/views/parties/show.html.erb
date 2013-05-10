@@ -7,15 +7,13 @@
 	<h3> Rating: <%= @party.rating %></h3>
 	 <%= image_tag @party.main_image %>
 
-	<h3> Description </h3>
+	 <h3> Description </h3>
 	<p> <%=@party.description %></p>
+	<p> <%=@party.id %></p>
 
 	<h3> Geocode </h3>
 	<p> <%=@party.latitude %></p>
 	<p> <%=@party.longitude %></p>
-
-
-
 
 
 </div>
@@ -40,5 +38,12 @@
     <% end %>
 </div>
 
+<div class ="images">
+    <% @party.images.each do |image| %>
+        <%= render image %>
+    <% end %>
+</div>
 
 <%= render :partial => 'comments/form', :locals => {:party => @party} %>
+
+<%= render :partial => 'images/form', :locals => {:party => @party} %>

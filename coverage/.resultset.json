@@ -511,10 +511,11 @@
         1,
         1,
         1,
+        1,
         null,
         null,
-        1,
-        1,
+        null,
+        null,
         null,
         null
       ],
@@ -672,10 +673,11 @@
         1,
         1,
         1,
+        1,
         null,
         null,
-        1,
-        1,
+        null,
+        null,
         null,
         1,
         1,
@@ -717,8 +719,16 @@
         1,
         1,
         null
+      ],
+      "/home/slim/Documents/Projects/PartyCrashers/app/models/user_party.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1368110353
+    "timestamp": 1368151899
   }
 }
