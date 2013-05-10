@@ -1,7 +1,9 @@
 PartyCrashers::Application.routes.draw do
+  get "tags/title:string"
+
   resources :parties
 
-  devise_for :users, :controllers => { :sessions => 'users/sessions' } 
+  devise_for :users
 
 
   resource :comments, :only => [:create]
