@@ -15,6 +15,8 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'rspec-rails', '~> 2.0'
 	gem 'shoulda-matchers'
+	gem 'machinist'
+	gem 'faker'
 end
 
 # Gems used only for assets and not required
