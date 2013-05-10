@@ -4,6 +4,7 @@
 
 <div id="search-box">
 <input type="text" id="search" placeholder="Search for a party to crash!" />
+</div>
 
 <style type="text/css">
 
@@ -32,6 +33,7 @@
       <th>Address</th>
       <th>Date</th>
       <th>Rating</th>
+      <th>Vote up or down!</th>
     </tr>
 
   <% @parties.each do |party| %>
@@ -46,8 +48,8 @@
           <td><%= link_to party.title, party %></td>
           <td><%= party.address %></td>
           <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
-          <td><%= party.rating %> </td>
-          <td><%= link_to 'Show', party %></td>
+          <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
+          <td><%= link_to "Up Vote", vote_party_path(party, type: "up"), method: "post" %> <%= link_to "Down Vote", vote_party_path(party, type: "down"), method: "post" %> </td>
           <td><%= link_to 'Edit', edit_party_path(party) %></td>
           <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

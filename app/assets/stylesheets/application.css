@@ -17,4 +17,10 @@
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
+    min-width: 850px;
+  }
+
+#content {
+	min-width: 1000px;
+
 }

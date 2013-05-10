@@ -9,6 +9,8 @@ class Party < ActiveRecord::Base
   has_many :comments
   has_many :users, :through => :user_parties
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
+
   #This is the GA Engineer bit
   # has_many :hosts, :through => :hosted_party, :source => :user
   # has_many :attendees, :through => :attended_party, :source => :user

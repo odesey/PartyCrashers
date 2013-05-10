@@ -55,6 +55,13 @@ class PartiesController < ApplicationController
     end
   end
 
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @party = Party.find(params[:id])
+    @party.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thanks for voting"
+  end
+
   # PUT /parties/1
   # PUT /parties/1.json
   def update

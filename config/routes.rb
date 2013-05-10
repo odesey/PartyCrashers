@@ -1,7 +1,9 @@
 PartyCrashers::Application.routes.draw do
   # get "tags/title:string"
 
-  resources :parties
+  resources :parties do 
+    member { post :vote }
+  end 
   resources :images
 
   devise_for :users
