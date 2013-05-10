@@ -16,7 +16,7 @@ describe UsersController do
     
     it "should find the right user" do
       get :show, :id => @user.id
-      assigns(:user).should == @user
+      assigns(:user).should == @User
     end
     
   end

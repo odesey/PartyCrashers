@@ -1,7 +1,8 @@
 PartyCrashers::Application.routes.draw do
   resources :parties
 
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => 'users/sessions' } 
+
 
   resource :comments, :only => [:create]
 
