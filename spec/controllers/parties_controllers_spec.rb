@@ -4,7 +4,7 @@ describe PartiesController do
 	before do
 		@user = User.make!
 		@party = Party.make!
-		binding.pry
+
 	end
 
 		describe "GET to index" do

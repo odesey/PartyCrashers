@@ -16,7 +16,9 @@
 
       <tr id="party-id-<%= party.id %>">
 
-          <td><%= image_tag party.main_image %></td>
+      
+
+          <td><%= link_to image_tag( party.main_image), party %></td>
 
           <td><%= link_to party.title, party %></td>
           <td><%= party.address %></td>

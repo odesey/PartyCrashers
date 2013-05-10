@@ -34,6 +34,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'pry'
+gem 'activerecord-reputation-system', require: 'reputation_system'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

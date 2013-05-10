@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+  # attr_accessible :title, :body   
   #Write a unit test to check this, if not use tha
   has_many :hosted_parties
   has_many :attended_parties
