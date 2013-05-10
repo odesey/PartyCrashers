@@ -8,7 +8,7 @@ describe PartiesController do
 	end
 	describe "Post to create" do
 		before do
-
+				
 		end
 
 
