@@ -1,5 +1,5 @@
 PartyCrashers::Application.routes.draw do
-  get "tags/title:string"
+  # get "tags/title:string"
 
   resources :parties
   resources :images

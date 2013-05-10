@@ -1,4 +1,4 @@
 class TagsController < ApplicationController
-  def title:string
+  def title
   end
 end
