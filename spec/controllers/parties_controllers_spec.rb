@@ -6,13 +6,16 @@ describe PartiesController do
 		@party = Party.make!
 		binding.pry
 	end
-	describe "Post to create" do
-		before do
-				
-		end
 
+		describe "GET to index" do
+      before do
+        get :index
+      end
 
-	end
-
+      it "should respone with status 200" do
+        expect(response).to be_success
+        expect(response.status).to eq(200)
+      end 
+    end
 	
 end

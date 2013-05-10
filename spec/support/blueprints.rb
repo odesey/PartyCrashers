@@ -19,8 +19,7 @@ Party.blueprint do
 	state {Faker::Address.state}
 	zipcode {Faker::Address.zip_code}
 	main_image {"http://www.bobhope.com/graphics/radiolg.jpg"}
-
-
+		
 end
 
 
