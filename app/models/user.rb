@@ -12,9 +12,10 @@ class User < ActiveRecord::Base
   has_many :hosted_parties
   has_many :attended_parties
   has_many :comments, :through => :parties
+  has_many :parties, :through => :user_parties
 
   #This is the GA Engineer bit
-  has_many :parties_hosted, :through => :hosted_party, :source => :party
-  has_many :parties_crashed, :through => :attended_party, :source => :party
+  # has_many :parties_hosted, :through => :hosted_party, :source => :party
+  # has_many :parties_crashed, :through => :attended_party, :source => :party
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508193202) do
+ActiveRecord::Schema.define(:version => 20130510013515) do
 
   create_table "attended_parties", :force => true do |t|
     t.integer  "user_id"
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(:version => 20130508193202) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_parties", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "party_id"
+    t.boolean  "host",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "users", :force => true do |t|
