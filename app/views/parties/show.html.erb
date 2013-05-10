@@ -4,7 +4,7 @@
 
 	<h1> <%= @party.title %> @ <%=@party.address%></h1>
 	<h3> <%= @party.date.to_s(:date) %></h3>
-	<h3> Rating: <%= @party.rating %></h3>
+	<h3> <%= pluralize @party.reputation_for(:votes).to_i, "vote" %></h3>
 	 <%= image_tag @party.main_image %>
 
 	 <h3> Description </h3>
