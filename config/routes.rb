@@ -8,7 +8,7 @@ PartyCrashers::Application.routes.draw do
 
 
   resource :comments, :only => [:create, :edit]
-
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
