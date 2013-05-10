@@ -2,11 +2,13 @@ PartyCrashers::Application.routes.draw do
   get "tags/title:string"
 
   resources :parties
+  resources :images
 
   devise_for :users
 
 
-  resource :comments, :only => [:create]
+  resource :comments, :only => [:create, :edit]
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
