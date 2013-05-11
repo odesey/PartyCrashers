@@ -6,4 +6,5 @@ if
 }
 else {
 	$('#sign-in').append("<%= j(render :partial => 'devise/sessions/new') %>");
+	$('#sign-in').find("#toggle-login").slideToggle();
 }
