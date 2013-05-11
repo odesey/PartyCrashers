@@ -1,2 +1,9 @@
 
-$("#sign-in").append("<%= j(render :partial => 'devise/sessions/new') %>");
+
+if 
+	($("#sign-in").find("#toggle-login").length) {
+	 $("#toggle-login").remove();
+}
+else {
+	$('#sign-in').append("<%= j(render :partial => 'devise/sessions/new') %>");
+}
