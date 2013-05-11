@@ -3,8 +3,11 @@ class PartiesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
-    # @parties = Party.all
-    @parties = Party.find_with_reputation(:votes, :all, order: "votes desc")
+    if params[:tag]
+      @parties = Party.tagged_with(params[:tag])
+    else
+      @parties = Party.find_with_reputation(:votes, :all, order: "votes desc")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
