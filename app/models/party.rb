@@ -27,11 +27,11 @@ class Party < ActiveRecord::Base
     "#{self.zipcode}"
   end
 
-  #a class method provided by sunspot search gem
-  def searchable 
-    text :name, :boost => 5
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
   end
-
-
-
 end
