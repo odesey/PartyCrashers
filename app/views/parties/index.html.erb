@@ -33,6 +33,7 @@
       <th>Address</th>
       <th>Date</th>
       <th>Rating</th>
+      <th>Tags</th>
       <th>Vote up or down!</th>
     </tr>
 
@@ -49,6 +50,7 @@
           <td><%= party.address %></td>
           <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
           <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
+          <td><%= party.tag_list %> </td>
           <td><%= link_to "Up Vote", vote_party_path(party, type: "up"), method: "post" %> <%= link_to "Down Vote", vote_party_path(party, type: "down"), method: "post" %> </td>
           <td><%= link_to 'Edit', edit_party_path(party) %></td>
           <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
