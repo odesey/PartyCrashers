@@ -41,7 +41,6 @@ class PartiesController < ApplicationController
   # POST /parties
   # POST /parties.json
   def create
-    binding.pry
     @party = Party.new(params[:party])
 
     respond_to do |format|
