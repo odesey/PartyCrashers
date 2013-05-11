@@ -12,13 +12,44 @@
  *= require_tree .
  */
 #header {
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
+    color: white;
+
+    font-family: tahoma;
+    font-size: 18px;
+    height: 60px;
+    position: fixed;
+    background-color: #333333;
+    border:3px solid #CCC;
     width:100%;
     margin:0px auto;
     min-width: 850px;
+    top: 0;
+    left: 0;
+    z-index: 100001;
+    padding-left: 20px;
+    letter-spacing: 3px;
+    transition: color 1s;
   }
+
+#header a:visited {
+  color: white;
+}
+
+#header a:hover {
+  color: #8bd5f3;
+  margin-top: 2px;  
+  transition: color 1s;
+}
+
+#header img{
+  height: 50px;
+  width: auto;
+  top: 5px;
+  position: relative;
+}
+
+
+
 
 #content {
 	min-width: 1000px;
