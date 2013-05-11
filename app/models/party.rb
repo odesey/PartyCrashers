@@ -1,5 +1,8 @@
 class Party < ActiveRecord::Base
-  attr_accessible :address, :date, :latitude, :longitude, :rating, :state, :time, :title, :zipcode, :description, :main_image
+  attr_accessible :address, :date, :latitude, :longitude, :rating, :state, :time, :title, :zipcode, :description, :main_image, :tag_list
+  #acts_as_taggable and :tag_list are provide by the acts-as_taggable_on gem.
+  acts_as_taggable
+
 
   has_many :hosted_parties
   has_many :attended_parties
@@ -9,7 +12,9 @@ class Party < ActiveRecord::Base
   has_many :comments
   has_many :users, :through => :user_parties
 
+  #This through the active record reputation gem
   has_reputation :votes, source: :user, aggregated_by: :sum
+  
 
   #This is the GA Engineer bit
   # has_many :hosts, :through => :hosted_party, :source => :user

@@ -33,6 +33,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'acts-as-taggable-on'
 gem 'jquery-rails'
 gem 'devise'
 gem 'pry'

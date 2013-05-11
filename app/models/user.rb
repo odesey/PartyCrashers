@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :comments, :through => :parties
   has_many :parties, :through => :user_parties
 
+  #has_reputation :votes, source: {reputation: :votes, of: :parties}, aggregated_by: :sum
+
   #This is the GA Engineer bit
   # has_many :parties_hosted, :through => :hosted_party, :source => :party
   # has_many :parties_crashed, :through => :attended_party, :source => :party
