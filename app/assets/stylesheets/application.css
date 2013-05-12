@@ -11,11 +11,14 @@
  *= require_self
  *= require_tree .
  */
+
+
 #header {
     color: white;
 
     font-family: helvetica;
-    font-size: 18px;
+    font-size: 13px;
+
     height: 60px;
     position: fixed;
     background-color: #333333;
@@ -29,9 +32,14 @@
     padding-left: 20px;
     letter-spacing: 3px;
     transition: color 1s;
-    display: inline-block;
+
     float:left;
-  }
+}
+
+#user-nav{
+  
+}
+
 
 #footer {
   clear: both;
@@ -64,6 +72,7 @@
   color: white;
 }
 
+
 #header a:hover {
   color: #8bd5f3;
   margin-top: 2px;  
@@ -75,6 +84,38 @@
   width: auto;
   top: 5px;
   position: relative;
+}
+
+#content{
+  margin-top: 30px;
+
+}
+
+#footer {
+  clear: both;
+  width: 100%;
+  border-top: 2px solid black;  
+  color: white;
+  font-family: helvetica;
+  background-color: #333333;
+  min-width: 850px;
+  border:3px solid #CCC;
+  letter-spacing: 3px;
+  height: auto;
+  font-size: 10px;
+  padding: 12px;
+}
+
+#search-box {
+  position: absolute;
+  float:right;
+  margin-right: 150px;
+  margin-top: 25px;
+}
+
+#search-box input {
+  height: 25px;
+  border-radius: 10px;
 }
 
 
@@ -95,12 +136,9 @@
 
 #content {
 	min-width: 1000px;
+
 }
 
-.left-column a:visited {
-  
-  font-size: 30px;
-}
 
 #tag_cloud {
   width: 400px;
