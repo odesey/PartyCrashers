@@ -1,15 +1,15 @@
 PartyCrashers::Application.routes.draw do
-<<<<<<< HEAD
+
   # get "tags/title:string"
   get 'tags/:tag' , to: 'parties#index', as: :tag
 
-  resources :parties do 
-    member { post :vote }
-  end 
-=======
+  # resources :parties do 
+  #   member { post :vote }
+
   resources :parties do
     member do
       post 'attend'
+      { post :vote }
     end
   end
 
@@ -17,8 +17,6 @@ PartyCrashers::Application.routes.draw do
   # map.connect ':parties/:attend/:id'
   # map.connect ':controller/:action/:id.:format'
 
-
->>>>>>> cukes
   resources :images
 
   devise_for :users
