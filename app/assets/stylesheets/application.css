@@ -14,7 +14,7 @@
 #header {
     color: white;
 
-    font-family: tahoma;
+    font-family: helvetica;
     font-size: 18px;
     height: 60px;
     position: fixed;
@@ -29,6 +29,8 @@
     padding-left: 20px;
     letter-spacing: 3px;
     transition: color 1s;
+    display: inline-block;
+    float:left;
   }
 
 #footer {
@@ -36,14 +38,27 @@
   width: 100%;
   border-top: 2px solid black;  
   color: white;
-  font-family: tahoma;
+  font-family: helvetica;
   background-color: #333333;
   min-width: 850px;
   border:3px solid #CCC;
   letter-spacing: 3px;
   height: auto;
+  font-size: 10px;
+  padding: 12px;
 }
 
+#search-box {
+  position: relative;
+  float:right;
+  margin-right: 150px;
+  margin-top: 25px;
+}
+
+#search-box input {
+  height: 25px;
+  border-radius: 10px;
+}
 
 #header a:visited {
   color: white;
@@ -62,6 +77,8 @@
   position: relative;
 }
 
+
+
 #toggle-login{
   background-image: url('transparentbg.png');
   height: 400px;
@@ -78,7 +95,11 @@
 
 #content {
 	min-width: 1000px;
+}
 
+.left-column a:visited {
+  
+  font-size: 30px;
 }
 
 #tag_cloud {

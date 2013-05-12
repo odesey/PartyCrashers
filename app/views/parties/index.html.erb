@@ -27,40 +27,37 @@
 </div>
 
 <div class="left-column">
-  <h1>Listing parties</h1>
 
-  <table>
-    <tr>
-      <th>Image</th>
-      <th>Title</th>
-      <th>Address</th>
-      <th>Date</th>
-      <th>Rating</th>
-      <th>Tags</th>
-      <th>Vote up or down!</th>
-    </tr>
 
   <% @parties.each do |party| %>
 
 
       <tr id="party-id-<%= party.id %>">
 
-      
+          <h4 class="party-title"><%= link_to party.title, party %></h4>
 
-          <td><%= link_to image_tag( party.main_image), party %></td>
 
-          <td><%= link_to party.title, party %></td>
-          <td><%= party.address %></td>
-          <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
-          <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
-          <td><%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> </td>
-          <td><%= link_to "Up Vote", vote_party_path(party, type: "up"), method: "post" %> <%= link_to "Down Vote", vote_party_path(party, type: "down"), method: "post" %> </td>
-          <td><%= link_to 'Edit', edit_party_path(party) %></td>
-          <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+          <div class="party-info">
+
+            <%= link_to image_tag( party.main_image), party %>            
+
+            <td><%= party.address %></td>
+            <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
+            <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
+            <td><%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> </td>
+            <td><%= link_to "Up Vote", vote_party_path(party, type: "up"), method: "post" %> <%= link_to "Down Vote", vote_party_path(party, type: "down"), method: "post" %> </td>
+
+          </div>
+
+          <!-- Edison these are links that should render only if current_user == host -->
+          <% if false %>  
+             <%= link_to 'Edit', edit_party_path(party) %>
+             <%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+
     <% end %>
 
-  </table>
+
 
   <br />
 
