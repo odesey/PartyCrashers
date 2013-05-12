@@ -3,4 +3,12 @@ class UserParty < ActiveRecord::Base
 
   belongs_to :party
   belongs_to :user
+
+  # def attend
+  # 	# self.
+  # end
+
+  # def host
+  # end
+
 end

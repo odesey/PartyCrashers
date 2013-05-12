@@ -1,10 +1,24 @@
 PartyCrashers::Application.routes.draw do
+<<<<<<< HEAD
   # get "tags/title:string"
   get 'tags/:tag' , to: 'parties#index', as: :tag
 
   resources :parties do 
     member { post :vote }
   end 
+=======
+  resources :parties do
+    member do
+      post 'attend'
+    end
+  end
+
+  # map.root :controller => "controller_name", :action => "Index"
+  # map.connect ':parties/:attend/:id'
+  # map.connect ':controller/:action/:id.:format'
+
+
+>>>>>>> cukes
   resources :images
 
   devise_for :users
@@ -12,6 +26,8 @@ PartyCrashers::Application.routes.draw do
 
   resource :comments, :only => [:create, :edit]
   
+
+  root :to => 'parties#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -62,7 +78,7 @@ PartyCrashers::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'parties#index'
+  
 
   # See how all your routes lay out with "rake routes"
 

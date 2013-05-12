@@ -89,13 +89,20 @@ class PartiesController < ApplicationController
   # DELETE /parties/1
   # DELETE /parties/1.json
   def destroy
-    @party = Party.find(params[:id])
+    @party = Party.find(params)
     @party.destroy
 
     respond_to do |format|
       format.html { redirect_to parties_url }
       format.json { head :no_content }
     end
+  end
+
+  def attend
+    # binding.pry
+    @user_party = UserParty.new
+    @user_party.party_id, @user_party.user_id = params[:id], params[:user_id]
+    @user_party.save!
   end
 
 end
