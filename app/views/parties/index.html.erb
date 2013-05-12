@@ -47,8 +47,7 @@
 
           <!-- Edison these are links that should render only if current_user == host -->
           <% if false %>  
-                <p><%= link_to image_tag('Trashcan.png', :alt => "trashcan", :class => "trashcan"), f, method: :delete %></p>
-
+            
              <%= link_to 'Edit', edit_party_path(party) %>
              <%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
