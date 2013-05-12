@@ -1,7 +1,4 @@
 
-<h1>Party Time!</h1>
-
-
 <style type="text/css">
 
   #map-canvas { height: 500px; width: 500px; float:right;}
@@ -15,53 +12,69 @@
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<div id="tag_cloud">
-  <% tag_cloud Party.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
-
-
-<div id="map-canvas">
-  
-</div>
-
 <div class="left-column">
+
+  <ul><h3> Parties near You</h1></ul>
 
 
   <% @parties.each do |party| %>
 
 
-      <tr id="party-id-<%= party.id %>">
+      <div id="party-id-<%= party.id %>">
 
-          <h4 class="party-title"><%= link_to party.title, party %></h4>
+        <li><h4 class="party-title"><%= link_to party.title, party %></h4></li>
 
 
           <div class="party-info">
 
-            <%= link_to image_tag( party.main_image), party %>            
+            <div class="party-image">
 
-            <td><%= party.address %></td>
-            <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
-            <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
-            <td><%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> </td>
-            <td><%= link_to "Up Vote", vote_party_path(party, type: "up"), method: "post" %> <%= link_to "Down Vote", vote_party_path(party, type: "down"), method: "post" %> </td>
+              <%= link_to image_tag( party.main_image), party %>         
+
+            </div>
+
+            <div class="party-details">
+
+              <td><%= party.address %></td>
+              <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
+              <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
+              <td><%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> </td>
+              <td><%= link_to image_tag('thumbsup.png', :alt => "thumbsup", :class => "thumb"), vote_party_path(party, type: "up"), method: "post" %> <%= link_to image_tag('thumbsdown.png', :alt => "thumbsdown", :class => "thumb"), vote_party_path(party, type: "down"), method: "post" %> </td>
+
+            </div>
 
           </div>
 
           <!-- Edison these are links that should render only if current_user == host -->
           <% if false %>  
+                <p><%= link_to image_tag('Trashcan.png', :alt => "trashcan", :class => "trashcan"), f, method: :delete %></p>
+
              <%= link_to 'Edit', edit_party_path(party) %>
              <%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
 
-    <% end %>
 
+      </div>
 
-
-  <br />
-
+  <% end %>
   <%= link_to 'New Party', new_party_path %>
 </div>
+
+<div class="right-column">
+
+  <div id="map-canvas">
+  </div>
+
+</div>
+
+<div class="sidebar">
+  <div id="tag_cloud">
+  <% tag_cloud Party.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+</div>
+
 
 
