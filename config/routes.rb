@@ -3,13 +3,15 @@ PartyCrashers::Application.routes.draw do
   # get "tags/title:string"
   get 'tags/:tag' , to: 'parties#index', as: :tag
 
-  # resources :parties do 
-  #   member { post :vote }
+  resources :parties do 
+    member { post :vote }
+  end
+  
 
   resources :parties do
     member do
       post 'attend'
-      { post :vote }
+      # { post :vote }
     end
   end
 

@@ -49,7 +49,7 @@
 
           <td><%= link_to image_tag( party.main_image), party %></td>
 
-          <td><%= image_tag party.main_image %></td>
+          <!-- <td><%#= image_tag party.main_image %></td> -->
           <td><%#= submit_tag "Crash Party!",attend_party_path, method: :attend, data: { confirm: 'See you there!' },:remote => :true %></td>
 
           <td><%= button_to "Crash Party!", { :action => "attend", :id => party.id, :user_id => current_user.id },
