@@ -3,11 +3,19 @@ class PartiesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
-    @parties = Party.all
+    if params[:search] 
+      @parties = Party.search(params[:search])
+
+    elsif params[:tag]
+      @parties = Party.tagged_with(params[:tag])
+    else
+      @parties = Party.find_with_reputation(:votes, :all, order: "votes desc")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @parties }
+      format.js 
     end
   end
 
@@ -17,7 +25,7 @@ class PartiesController < ApplicationController
     @party = Party.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html# show.html.erb
       format.json { render json: @party }
     end
   end
@@ -41,6 +49,7 @@ class PartiesController < ApplicationController
   # POST /parties
   # POST /parties.json
   def create
+
     @party = Party.new(params[:party])
 
     respond_to do |format|
@@ -52,6 +61,13 @@ class PartiesController < ApplicationController
         format.json { render json: @party.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @party = Party.find(params[:id])
+    @party.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thanks for voting"
   end
 
   # PUT /parties/1

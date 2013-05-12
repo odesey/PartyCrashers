@@ -1,10 +1,17 @@
 PartyCrashers::Application.routes.draw do
-  resources :parties
+  # get "tags/title:string"
+  get 'tags/:tag' , to: 'parties#index', as: :tag
+
+  resources :parties do 
+    member { post :vote }
+  end 
   resources :images
 
   devise_for :users
 
+
   resource :comments, :only => [:create, :edit]
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

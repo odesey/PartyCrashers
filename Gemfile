@@ -16,6 +16,8 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'rspec-rails', '~> 2.0'
 	gem 'shoulda-matchers'
+	gem 'machinist'
+	gem 'faker'
 end
 
 gem 'simplecov', :require => false, :group => :test
@@ -31,8 +33,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+
+
+gem 'acts-as-taggable-on'
 gem 'jquery-rails'
 gem 'devise'
+gem 'pry'
+gem 'activerecord-reputation-system', require: 'reputation_system'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

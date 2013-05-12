@@ -1,0 +1,10 @@
+
+
+if 
+	($("#sign-in").find("#toggle-login").length) {
+	 $("#toggle-login").remove();
+}
+else {
+	$('#sign-in').append("<%= j(render :partial => 'devise/sessions/new') %>");
+	$('#sign-in').find("#toggle-login").slideToggle();
+}

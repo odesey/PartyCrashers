@@ -7,28 +7,50 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="header">
+	<div id="header">	
 
 		<div id="user_nav">
+			<%= image_tag('logo.png') %>
 			<%= link_to "Home", parties_path %> | <%= link_to "Create Party", new_party_path %> | <%= link_to "Search", parties_path %> | <%= link_to "About", parties_path %> | <%= link_to "Contact", parties_path %> | 
 
+			<% if user_signed_in? %> Signed in as <%= current_user.email %>.  Not you? | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 
-			<% if user_signed_in? %>
-				<p> Signed in as <%= current_user.email %>.  Not you?</p>
-				<%= link_to "Sign out", destroy_user_session_path %>
 			<% else %>
-				<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", user_session_path %>.
-			<% end %> 
+
+				<% if false %>
+				<%= link_to "Sign up", new_user_registration_path, :id => "sign-up" %> or <%= link_to "Sign in", user_session_path, :id => "sign-in" %>
+				<% end %>
+
+				<%= link_to "Sign up", new_user_registration_path, :id => "sign-up" %> or <%= link_to "Sign in", parties_path, :id => "sign-in", :remote => true %>
+
+
+			<% end %> |
+
+	    <div id="search-box">
+				<%= form_tag parties_path, :method => :get do %>
+					<p>
+					    <%= text_field_tag :search, params[:search] %>
+					    <%= submit_tag "Search", :name => nil %>
+					</p>
+				<% end %>
+		  </div>
 		</div>
 
-		<div id="deviseflash">
-			<p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-     </div>
-   </div>
+			<div id="deviseflash">
+				<p class="notice"><%= notice %></p>
+	      	<p class="alert"><%= alert %></p>
+	    </div>
 
-   <div id="content">
+
+
+
+
+
+  </div>
+
+  <div id="content">
 		<%= yield %>
 	</div>
+
 </body>
 </html>
