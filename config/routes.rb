@@ -1,10 +1,22 @@
 PartyCrashers::Application.routes.draw do
-  resources :parties
+  resources :parties do
+    member do
+      post 'attend'
+    end
+  end
+
+  # map.root :controller => "controller_name", :action => "Index"
+  # map.connect ':parties/:attend/:id'
+  # map.connect ':controller/:action/:id.:format'
+
+
   resources :images
 
   devise_for :users
 
   resource :comments, :only => [:create, :edit]
+
+  root :to => 'parties#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -55,7 +67,7 @@ PartyCrashers::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'parties#index'
+  
 
   # See how all your routes lay out with "rake routes"
 

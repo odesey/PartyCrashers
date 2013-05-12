@@ -40,11 +40,18 @@
       <tr id="party-id-<%= party.id %>">
 
           <td><%= image_tag party.main_image %></td>
+          <td><%#= submit_tag "Crash Party!",attend_party_path, method: :attend, data: { confirm: 'See you there!' },:remote => :true %></td>
+
+          <td><%= button_to "Crash Party!", { :action => "attend", :id => party.id, :user_id => current_user.id },
+                    :confirm => "See You There!", :method => :attend,:remote => :true %></td>
 
           <td><%= link_to party.title, party %></td>
           <td><%= party.address %></td>
           <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
           <td><%= party.rating %> </td>
+          <!-- <td><%#= button_to "Crash Party", attend_party_path(@post, bid), :action => "attend" %></td> -->
+
+
           <td><%= link_to 'Show', party %></td>
           <td><%= link_to 'Edit', edit_party_path(party) %></td>
           <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
