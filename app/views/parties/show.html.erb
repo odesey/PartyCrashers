@@ -22,7 +22,7 @@
 
 <div class="right-column">
 	<div class="map">
-
+		<%= render :partial => 'comments/form', :locals => {:party => @party} %>
 	</div>
 </div>
 
@@ -43,6 +43,6 @@
     <% end %>
 </div>
 
-<%= render :partial => 'comments/form', :locals => {:party => @party} %>
+
 
 <%= render :partial => 'images/form', :locals => {:party => @party} %>
