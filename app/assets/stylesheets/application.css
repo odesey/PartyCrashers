@@ -33,6 +33,7 @@
     float:left;
 }
 
+
 #user-nav  {
   min-width: 1850px;
   float: left;
@@ -54,9 +55,19 @@
 
 
 
-#user-nav{
-  
+#search-box {
+
+  float:right;
+  margin-right: 150px;
+  margin-top: 25px;
+
 }
+
+#search-box input {
+  height: 25px;
+  border-radius: 10px;
+}
+
 
 
 #footer {
@@ -125,17 +136,7 @@
 }
 
 
-#search-box {
-  position: absolute;
-  float:right;
-  margin-right: 150px;
-  margin-top: 25px;
-}
-
-#search-box input {
-  height: 25px;
-  border-radius: 10px;
-}
+  
 
 
 

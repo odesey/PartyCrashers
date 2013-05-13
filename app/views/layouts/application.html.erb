@@ -9,7 +9,7 @@
 <body>
 	<div id="header">	
 
-		<span id="user_nav">
+		<div id="user_nav">
 			<%= image_tag('logo.png') %>
 			<%= link_to "Home", root_path %> | <%= link_to "Create Party", new_party_path %> | <%= link_to "Search", parties_path %> | <%= link_to "About", parties_path %> | <%= link_to "Contact", parties_path %> | 
 
@@ -26,13 +26,9 @@
 
 
 
-		    <div id="search-box">
-				<%= form_tag parties_path, :method => :get do %>
-					<p>
-					    <%= text_field_tag :search, params[:search] %>
-					    <%= submit_tag "Search", :name => nil %>
-					</p>
-				<% end %>
+				<%= form_tag parties_path, :id => "search-box", :method => :get do %>
+
+
 		  </div>
 		</div>
 
@@ -40,6 +36,8 @@
 				<p class="notice"><%= notice %></p>
 	      	<p class="alert"><%= alert %></p>
 	    </div>
+
+
 
   </div>
 
