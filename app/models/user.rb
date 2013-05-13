@@ -6,13 +6,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :age
   # attr_accessible :title, :body   
   #Write a unit test to check this, if not use tha
   has_many :hosted_parties
   has_many :attended_parties
   has_many :comments, :through => :parties
   has_many :parties, :through => :user_parties
+  has_many :user_parties
 
   #has_reputation :votes, source: {reputation: :votes, of: :parties}, aggregated_by: :sum
 

@@ -11,6 +11,7 @@ class Party < ActiveRecord::Base
   has_many :images
   has_many :comments
   has_many :users, :through => :user_parties
+  has_many :user_parties
 
   #This through the active record reputation gem
   has_reputation :votes, source: :user, aggregated_by: :sum
@@ -24,7 +25,8 @@ class Party < ActiveRecord::Base
   after_validation :geocode
 
   def geolocate
-    "#{self.zipcode}"
+    "#{self.address}"', '"#{self.state}"', '"#{self.zipcode}"
+    # binding.pry
   end
 
   def self.search(search)
@@ -34,4 +36,17 @@ class Party < ActiveRecord::Base
       find(:all)
     end
   end
+
+  def crashed(id,party)
+    # binding.pry
+    user = User.find(id)
+    # binding.pry
+    party = Party.find(party)
+    # binding.pry
+    user.parties.include?(party)
+    # binding.pry
+    # binding.pry
+  end
+
+
 end

@@ -12,7 +12,15 @@
 
 <script type="text/javascript">
 
-  google.maps.event.addDomListener(window, 'load', initialize);
+    $(function() {
+          initialize();
+
+
+      <% Party.all.each do |p| %>
+         partyMarker(<%= p.latitude ? p.latitude : 0 %>, <%= p.longitude ? p.longitude : 0 %>, "<%= p.title %>");
+      <% end %>
+  });
+
 </script>
 
 <div id="tag_cloud">
@@ -45,15 +53,17 @@
 
       <tr id="party-id-<%= party.id %>">
 
-      
-
           <td><%= link_to image_tag( party.main_image), party %></td>
+          <% if party.crashed(current_user.id, party.id) == false %>
+          
 
-          <!-- <td><%#= image_tag party.main_image %></td> -->
-          <td><%#= submit_tag "Crash Party!",attend_party_path, method: :attend, data: { confirm: 'See you there!' },:remote => :true %></td>
-
-          <td><%= button_to "Crash Party!", { :action => "attend", :id => party.id, :user_id => current_user.id },
+            <td><%= button_to "Crash Party!", { :action => "attend", :id => party.id, :user_id => current_user.id },
                     :confirm => "See You There!", :method => :attend,:remote => :true %></td>
+          <% else %>
+
+           <td></td>
+
+          <% end %>
 
           <td><%= link_to party.title, party %></td>
           <td><%= party.address %></td>
@@ -73,5 +83,3 @@
 
   <%= link_to 'New Party', new_party_path %>
 </div>
-
-

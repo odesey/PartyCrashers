@@ -103,6 +103,7 @@ class PartiesController < ApplicationController
     @user_party = UserParty.new
     @user_party.party_id, @user_party.user_id = params[:id], params[:user_id]
     @user_party.save!
+    render :template => 'parties/attend', :locals => { :user_party => @user_party }, :content_type => 'text/javascript'
   end
 
 end
