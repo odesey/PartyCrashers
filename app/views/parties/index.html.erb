@@ -41,6 +41,7 @@
             <div class="party-image">
 
               <%= link_to image_tag( party.main_image), party %>         
+
         <% else %>
 
           <h4 class="party-title"><%= link_to party.title, new_user_registration_path %></h4>
@@ -51,8 +52,6 @@
             <div class="party-image">
 
               <%= link_to image_tag( party.main_image), new_user_registration_path %>
-
-
 
             </div>
         <% end %> 
@@ -95,5 +94,9 @@
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> dev
 </div>
