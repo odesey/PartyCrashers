@@ -15,10 +15,8 @@
 
 #header {
     color: white;
-
     font-family: helvetica;
     font-size: 13px;
-
     height: 60px;
     position: fixed;
     background-color: #333333;
@@ -38,7 +36,6 @@
 #user-nav *  {
   min-width: 1850px;
   float: left;
-
   
 }
 
