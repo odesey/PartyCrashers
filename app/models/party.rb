@@ -24,7 +24,8 @@ class Party < ActiveRecord::Base
   after_validation :geocode
 
   def geolocate
-    "#{self.zipcode}"
+    "#{self.address}"', '"#{self.state}"', '"#{self.zipcode}"
+    # binding.pry
   end
 
   def self.search(search)
