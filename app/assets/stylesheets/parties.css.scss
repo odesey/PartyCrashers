@@ -1,4 +1,4 @@
-// Place all the styles related to the Parties controller here.
+	// Place all the styles related to the Parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -24,6 +24,7 @@
 
  div#user-nav  {
     float: left;
+
 }
 
 
@@ -33,6 +34,7 @@
     // float: right;
 
 }
+
 
 div.party-image img {
     width: 75px;
@@ -55,9 +57,12 @@ div.party-image{
 
 }
 
-div.party-details{
-
+.left-column img{
+    height: 150px;
+    width: auto;
 }
+
+
 
 h1 {
 	margin-top: 70px;

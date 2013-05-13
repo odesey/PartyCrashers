@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510194105) do
+ActiveRecord::Schema.define(:version => 20130512223617) do
 
   create_table "attended_parties", :force => true do |t|
     t.integer  "user_id"
@@ -45,17 +45,17 @@ ActiveRecord::Schema.define(:version => 20130510194105) do
   create_table "parties", :force => true do |t|
     t.string   "title"
     t.string   "address"
-    t.integer  "rating"
     t.integer  "zipcode"
     t.string   "state"
+    t.string   "city"
+    t.integer  "rating"
     t.date     "date"
     t.time     "time"
-    t.float    "latitude"
     t.float    "longitude"
+    t.float    "latitude"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.text     "description"
-    t.string   "main_image"
   end
 
   create_table "party_tags", :force => true do |t|
