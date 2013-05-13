@@ -28,6 +28,10 @@
 
 				<%= form_tag parties_path, :id => "search-box", :method => :get do %>
 
+					    <%= text_field_tag :search, params[:search] %>
+					    <%= submit_tag "Search", :name => nil %>
+
+				<% end %>
 
 		  </div>
 		</div>
@@ -37,6 +41,9 @@
 	      	<p class="alert"><%= alert %></p>
 	    </div>
 
+
+		</div>
+	</div>
 
 
   </div>
