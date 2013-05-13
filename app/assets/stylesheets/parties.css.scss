@@ -22,7 +22,7 @@
     display: block; 
 }
 
-* div#user-nav  {
+ div#user-nav  {
     float: left;
 }
 
@@ -34,14 +34,28 @@
 
 }
 
-.party-info img {
-    height: 75px;
-    width: auto;
+div.party-image img {
+    width: 75px;
+    height: auto;
+
 }
 
 .party-title a:visited {
     color: black;
     text-decoration: line-through;
+
+}
+
+div.party-info{
+    position:relative;          
+}
+
+div.party-image{
+    
+
+}
+
+div.party-details{
 
 }
 

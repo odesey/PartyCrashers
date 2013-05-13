@@ -22,7 +22,7 @@
 
       <div id="party-id-<%= party.id %>">
 
-        <li><h4 class="party-title"><%= link_to party.title, party %></h4></li>
+        <h4 class="party-title"><%= link_to party.title, party %></h4>
 
 
           <div class="party-info">
@@ -35,23 +35,15 @@
 
             <div class="party-details">
 
-              <td><%= party.address %></td>
-              <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
-              <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
-              <td><%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> </td>
-              <td><%= link_to image_tag('thumbsup.png', :alt => "thumbsup", :class => "thumb"), vote_party_path(party, type: "up"), method: "post" %> <%= link_to image_tag('thumbsdown.png', :alt => "thumbsdown", :class => "thumb"), vote_party_path(party, type: "down"), method: "post" %> </td>
+              <%= party.address %>
+              <%= party.date.strftime("%A, %B %e"    ) %> 
+              <%= pluralize party.reputation_for(:votes).to_i, "vote" %>
+              <%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> 
+              <%= link_to image_tag('thumbsup.png', :alt => "thumbsup", :class => "thumb"), vote_party_path(party, type: "up"), method: "post" %> <%= link_to image_tag('thumbsdown.png', :alt => "thumbsdown", :class => "thumb"), vote_party_path(party, type: "down"), method: "post" %> 
 
             </div>
 
           </div>
-
-          <!-- Edison these are links that should render only if current_user == host -->
-          <% if false %>  
-            
-             <%= link_to 'Edit', edit_party_path(party) %>
-             <%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-
 
       </div>
 
