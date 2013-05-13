@@ -31,8 +31,7 @@
 <%= link_to 'Back', parties_path %>
 
 
-
-<div class ="comments">
+<div class ="comments"> 
     <% @party.comments.each do |comment| %>
         <%= render comment %>
     <% end %>
