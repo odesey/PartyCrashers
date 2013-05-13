@@ -32,7 +32,7 @@
 
       <div id="party-id-<%= party.id %>">
 
-
+        <% if user_signed_in? %>
         <h4 class="party-title"><%= link_to party.title, party %></h4>
 
 
@@ -41,8 +41,21 @@
             <div class="party-image">
 
               <%= link_to image_tag( party.main_image), party %>         
+        <% else %>
+
+          <h4 class="party-title"><%= link_to party.title, new_user_registration_path %></h4>
+
+
+          <div class="party-info">
+
+            <div class="party-image">
+
+              <%= link_to image_tag( party.main_image), new_user_registration_path %>
+
+
 
             </div>
+        <% end %> 
 
             <div class="party-details">
 
