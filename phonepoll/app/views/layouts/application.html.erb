@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phonepoll</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header id="header">
+
+			<ul id="nav">
+				<li>Home | </li>
+				<li>Polls | </li>
+				<li>Search | </li>	
+				<li>Contact | </li>
+				<li> About | </li>
+			</ul>
+
+	</header>
+
+
+<%= yield %>
+
+<footer>
+	Pry or Die 2013.  All Rights Reserved.  Ce cu tine patsan?
+</footer>
+
+
+</body>
+</html>
