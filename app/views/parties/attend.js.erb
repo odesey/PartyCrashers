@@ -1,2 +1,5 @@
-$('body').css({background: 'blue'});
-// $('body').append("<%= escape_javascript(render :partial => 'tasks/task') %>").find('.task:last').hide().fadeIn(2000);
+$(document).ready(function() {
+	$('button_to').click(function(){
+		$(this).fadeOut('slow')
+	});
+});

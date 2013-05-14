@@ -69,7 +69,7 @@ function partyMarker(latitude, longitude, title) {
     position: partyPointer,
     map: map,
     draggable:true,
-    icon: image,
+    // icon: image,
     shape: shape,
     animation: google.maps.Animation.DROP,
     title: title
