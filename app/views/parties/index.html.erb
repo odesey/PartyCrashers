@@ -12,6 +12,7 @@
         $(function() {
               initialize();
 
+
           <% Party.all.each do |p| %>
              partyMarker(<%= p.latitude ? p.latitude : 0 %>, <%= p.longitude ? p.longitude : 0 %>, "<%= p.title %>");
           <% end %>
@@ -25,11 +26,13 @@
   <ul><h3> Parties near You</h1></ul>
 
 
+
   <% @parties.each do |party| %>
 
 
       <div id="party-id-<%= party.id %>">
 
+        <% if user_signed_in? %>
         <h4 class="party-title"><%= link_to party.title, party %></h4>
 
 
@@ -39,9 +42,29 @@
 
               <%= link_to image_tag( party.main_image), party %>         
 
+        <% else %>
+
+          <h4 class="party-title"><%= link_to party.title, new_user_registration_path %></h4>
+
+
+          <div class="party-info">
+
+            <div class="party-image">
+
+              <%= link_to image_tag( party.main_image), new_user_registration_path %>
+
             </div>
+        <% end %> 
 
             <div class="party-details">
+              <% if user_signed_in? %>
+                <%= button_to "Crash Party!", { :action => "attend", :id => party.id, :user_id => current_user.id },
+                    :confirm => "See You There!", :method => :attend,:remote => :true %>
+              <% else %>
+                <!-- render nothing -->
+                <td></td>
+
+              <% end %>
 
               <%= party.address %>
               <%= party.date.strftime("%A, %B %e"    ) %> 
@@ -52,7 +75,6 @@
             </div>
 
           </div>
-
       </div>
 
   <% end %>
@@ -72,5 +94,9 @@
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> dev
 </div>
