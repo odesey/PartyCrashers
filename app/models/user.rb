@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :attended_parties
   has_many :comments, :through => :parties
   has_many :parties, :through => :user_parties
+  has_many :user_parties
 
   #has_reputation :votes, source: {reputation: :votes, of: :parties}, aggregated_by: :sum
 

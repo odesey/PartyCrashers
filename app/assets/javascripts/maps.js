@@ -1,4 +1,3 @@
-
 var map;
 var marker;
 var partyPointer;
@@ -83,6 +82,6 @@ function toggleBounce() {
   } else {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   };
-};
 
+};
 

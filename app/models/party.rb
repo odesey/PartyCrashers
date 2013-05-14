@@ -12,6 +12,7 @@ class Party < ActiveRecord::Base
   has_many :images
   has_many :comments
   has_many :users, :through => :user_parties
+  has_many :user_parties
 
   #This through the active record reputation gem
   has_reputation :votes, source: :user, aggregated_by: :sum
@@ -35,6 +36,18 @@ class Party < ActiveRecord::Base
     else
       find(:all)
     end
+  end
+
+
+  def crashed(id,party)
+    # binding.pry
+    user = User.find(id)
+    # binding.pry
+    party = Party.find(party)
+    # binding.pry
+    user.parties.include?(party)
+    # binding.pry
+    # binding.pry
   end
 
 end
