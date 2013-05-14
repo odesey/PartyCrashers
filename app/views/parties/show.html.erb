@@ -22,7 +22,7 @@
 
 <div class="right-column">
 	<div class="map">
-
+		<%= render :partial => 'comments/form', :locals => {:party => @party} %>
 	</div>
 </div>
 
@@ -31,8 +31,7 @@
 <%= link_to 'Back', parties_path %>
 
 
-
-<div class ="comments">
+<div class ="comments"> 
     <% @party.comments.each do |comment| %>
         <%= render comment %>
     <% end %>
@@ -44,6 +43,6 @@
     <% end %>
 </div>
 
-<%= render :partial => 'comments/form', :locals => {:party => @party} %>
+
 
 <%= render :partial => 'images/form', :locals => {:party => @party} %>

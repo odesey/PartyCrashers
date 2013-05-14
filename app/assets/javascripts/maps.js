@@ -82,4 +82,6 @@ function toggleBounce() {
   } else {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   };
+
 };
+

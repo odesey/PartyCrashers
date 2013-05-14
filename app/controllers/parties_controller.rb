@@ -3,6 +3,7 @@ class PartiesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
+
     if params[:search] 
       @parties = Party.search(params[:search])
 
@@ -23,7 +24,6 @@ class PartiesController < ApplicationController
   # GET /parties/1.json
   def show
     @party = Party.find(params[:id])
-
     respond_to do |format|
       format.html# show.html.erb
       format.json { render json: @party }

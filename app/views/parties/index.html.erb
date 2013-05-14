@@ -1,7 +1,4 @@
 
-<h1>Party Time!</h1>
-
-
 <style type="text/css">
 
   #map-canvas { height: 500px; width: 500px; float:right;}
@@ -23,63 +20,63 @@
 
 </script>
 
-<div id="tag_cloud">
-  <% tag_cloud Party.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
-
-
-<div id="map-canvas">
-  
-</div>
-
 <div class="left-column">
-  <h1>Listing parties</h1>
 
-  <table>
-    <tr>
-      <th>Image</th>
-      <th>Title</th>
-      <th>Address</th>
-      <th>Date</th>
-      <th>Rating</th>
-      <th>Tags</th>
-      <th>Vote up or down!</th>
-    </tr>
+  <ul><h3> Parties near You</h1></ul>
+
+
 
   <% @parties.each do |party| %>
 
 
-      <tr id="party-id-<%= party.id %>">
+      <div id="party-id-<%= party.id %>">
+
+        <% if user_signed_in? %>
+        <h4 class="party-title"><%= link_to party.title, new_user_registration_path %></h4>
+
+
+          <div class="party-info">
 
           <td><%= link_to image_tag( party.main_image), party %></td>
           <% if party.crashed(current_user.id, party.id) == false %>
           
 
-            <td><%= button_to "Crash Party!", { :action => "attend", :id => party.id, :user_id => current_user.id },
+            <td id="crash"><%= button_to "Crash Party!", { :action => "attend", :id => party.id, :user_id => current_user.id },
                     :confirm => "See You There!", :method => :attend,:remote => :true %></td>
           <% else %>
 
            <td></td>
 
           <% end %>
+          <%= party.address %>
+          <%= party.date.strftime("%A, %B %e"    ) %> 
+          <%= pluralize party.reputation_for(:votes).to_i, "vote" %>
+          <%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> 
+          <%= link_to image_tag('thumbsup.png', :alt => "thumbsup", :class => "thumb"), vote_party_path(party, type: "up"), method: "post" %> <%= link_to image_tag('thumbsdown.png', :alt => "thumbsdown", :class => "thumb"), vote_party_path(party, type: "down"), method: "post" %>                      
 
-          <td><%= link_to party.title, party %></td>
-          <td><%= party.address %></td>
-          <td><%= party.date.strftime("%A, %B %e"    ) %> </td>
-          <td><%= pluralize party.reputation_for(:votes).to_i, "vote" %> </td>
-          <td><%= raw party.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %> </td>
-          <td><%= link_to "Up Vote", vote_party_path(party, type: "up"), method: "post" %> <%= link_to "Down Vote", vote_party_path(party, type: "down"), method: "post" %> </td>
+        <% else %>
 
-          <td><%= link_to 'Edit', edit_party_path(party) %></td>
-          <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+        <% end %> 
+          </div>
+      </div>
 
-  </table>
-
-  <br />
-
+  <% end %>
   <%= link_to 'New Party', new_party_path %>
 </div>
+
+<div class="right-column">
+
+  <div id="map-canvas">
+  </div>
+
+</div>
+
+<div class="sidebar">
+  <div id="tag_cloud">
+  <% tag_cloud Party.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+</div>
+

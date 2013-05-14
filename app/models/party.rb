@@ -1,4 +1,5 @@
 class Party < ActiveRecord::Base
+
   attr_accessible :address, :date, :latitude, :longitude, :rating, :state, :time, :title, :zipcode, :description, :main_image, :tag_list
   #acts_as_taggable and :tag_list are provide by the acts-as_taggable_on gem.
   acts_as_taggable
@@ -37,6 +38,7 @@ class Party < ActiveRecord::Base
     end
   end
 
+
   def crashed(id,party)
     # binding.pry
     user = User.find(id)
@@ -47,6 +49,5 @@ class Party < ActiveRecord::Base
     # binding.pry
     # binding.pry
   end
-
 
 end
