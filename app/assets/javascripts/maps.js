@@ -38,7 +38,7 @@ function drop() {
 function partyMarker(latitude, longitude, title) {
 
   var image = {
-    url: 'http://images.colourbox.com/thumb_COLOURBOX6454919.jpg',
+    url: 'https://s3.amazonaws.com/uploads.hipchat.com/39979/307363/6pi0lcjvigrvpk5/balloon_thumb.png',
     // This marker is 20 pixels wide by 32 pixels tall.
     size: new google.maps.Size(20, 32),
     // The origin for this image is 0,0.
