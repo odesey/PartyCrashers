@@ -1,0 +1,16 @@
+{
+    "sid": "SM112842d2e8975718d2dd2f769a1adfd9",
+    "date_created": "Wed, 29 May 2013 02:56:51 +0000",
+    "date_updated": "Wed, 29 May 2013 02:56:51 +0000",
+    "date_sent": null,
+    "account_sid": "AC14aa346613c89fec467663aad46c05a2",
+    "to": "+16462363162",
+    "from": "+13473217539",
+    "body": "This is a sample text for stubbing.",
+    "status": "queued",
+    "direction": "outbound-api",
+    "api_version": "2010-04-01",
+    "price": null,
+    "price_unit": "USD",
+    "uri": "\/2010-04-01\/Accounts\/AC14aa346613c89fec467663aad46c05a2\/SMS\/Messages\/SM112842d2e8975718d2dd2f769a1adfd9.json"
+}

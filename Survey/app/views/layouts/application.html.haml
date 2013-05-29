@@ -1,0 +1,34 @@
+!!! HTML
+%html
+  %head
+    %title Survey
+    = stylesheet_link_tag  "application", :media => "all"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Domine'
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    %div#navcontainer
+      %ul#nav
+        %li 
+          = link_to 'Home', root_url
+        %li
+          = link_to "About", root_url
+        %li 
+          = link_to "Contact", root_url
+        %li
+          - if current_user
+            %p Signed in as #{current_user.email}. Not you?
+            \#{link_to "Sign out", destroy_user_session_path, :method => :delete}
+          - else
+            = link_to "Sign up", new_user_registration_path
+            #{link_to "sign in", new_user_session_path}
+
+
+    %p.notice= notice
+    %p.alert= alert
+
+    = yield
+
+
+
