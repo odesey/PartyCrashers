@@ -1,0 +1,27 @@
+.index-left.span8
+  %h1 Listing teams
+  %table.table.table-striped.table-bordered.table-hover
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+    - @teams.each do |team|
+      %tr
+        %td.team-name= link_to team.name, team
+        %td= link_to "Add Member", "#mymodal",:class => "btn"
+        %td= link_to 'Edit', edit_team_path(team), :class =>"btn"
+        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn"
+  %br/
+  = link_to 'New Team', new_team_path, :class => "btn"
+  = link_to "Manage Employees", people_path, :class =>"btn"
+  = link_to "Send Appointments", "#", :class => "btn"
+
+/ Eventually will modal this in
+/ = render "people/form", :style =>"display:none;"
+
+.index-right.span3
+  %h2 Total Employees
+  %h1= @count
+  
+

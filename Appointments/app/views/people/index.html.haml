@@ -1,0 +1,18 @@
+%h1 Listing people
+%table.table.table-striped.table-hover.table-bordered
+  %tr
+    %th Name
+    %th Email
+    %th
+    %th
+    %th
+  - @people.each do |person|
+    %tr
+      %td= person.name
+      %td= person.email
+      %td= link_to 'Show', person, :class => "btn"
+      %td= link_to 'Edit', edit_person_path(person), :class => "btn"
+      %td= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn"
+%br/
+= link_to 'New Person', new_person_path, :class =>"btn"
+= link_to "Manage Teams", teams_path, :class =>"btn"

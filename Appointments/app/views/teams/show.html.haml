@@ -1,0 +1,43 @@
+.left.span8
+  %p#notice= notice
+  %p
+    %h1= @team.name
+    %h4= @team.id
+  %table.table.table-striped.table-bordered.table-hover
+    -@members.each do |member|
+      %tr
+        %td.name= link_to member.name, person_path(member)
+        %td.email= member.email
+        %td.edit= link_to "Edit", edit_person_path(member), :class =>"btn"
+        %td.destroy= link_to "Remove", remove_from_team_path(member.id, :team_id =>@team.id), method: :post, :class =>"btn"
+
+
+  = link_to "Add Member"
+  = link_to 'Edit', edit_team_path(@team), :class => "btn"
+
+  =link_to 'Back', teams_path, :class => 'btn'
+
+  = form_for Person.new, :style =>"display:none" do |f|
+    = f.hidden_field :team_id, :value => @team.id 
+    = f.label :name
+    = f.text_field :name
+    %br
+    = f.label :email
+    = f.text_field :email
+    %br
+    = f.submit "Add Team Member", :class =>"btn"
+
+.right.span3
+  %h1 All Employees
+  %table.table.table_striped.table-hover    
+    -@employees.each do |employee|
+      %tr
+        %td= employee.name
+        %td= link_to "Add To Team", add_to_team_path(employee.id, :team_id => @team.id), :method => :post, :class =>'btn btn-small'
+
+        / = form_for @team do |f|
+        / =f.hidden_field :id, :value => @team.id
+        / =f.hidden_field :member_id, :value => employee.id
+        / =f.submit "Add To Team", :class => 'btn'
+
+/ , "Add to Team", add_to_team_path(employee.id), :method => :post, :class => 'btn'
