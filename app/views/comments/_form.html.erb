@@ -3,17 +3,14 @@
 <!-- creates new comment but defaulting id to 1 -->
 
     <%= form_for Comment.new(:party_id => party.id), :remote => :true do |f| %>
-        
-            <div class="field">
+            <div class="fi:r:eld">
                 <%= f.hidden_field :party_id %>
             </div>
-
             <div class="field">
-                <%= f.text_area :body %>
+                <%= f.text_area :body, :class => 'box' %>
             </div>
-
             <div class="field">
-                <%= f.submit %>
+                <%= f.submit 'post', :class => 'button'  %>
             </div>
     <% end %>
 
